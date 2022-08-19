@@ -1,17 +1,18 @@
-﻿using System;
+﻿namespace _0_Library;
+using System;
 
-public class Library
+public static class Library
 {
     // метод ввода:D
-    public static int InputToInt(string input)
+    public static double InputToInt(string input)
     {
-        int output = 0;
-        output = int.Parse(input);
+        double output = 0;
+        output = double.Parse(input);
         return output;
     }
-
+    
     // метод проверки на четность
-    public bool IfEven(int input)
+    public static bool IfEven(int input)
 	{
         if (input % 2 == 0)
         {
@@ -24,7 +25,7 @@ public class Library
     }
 
     // метод сравнения чисел
-    public static (int, int) MaxAndMin(int input1, int input2)
+    public static (int i1, int i2) MaxAndMin(int input1, int input2)
 	{
         if (input1 > input2 )
         {
@@ -37,7 +38,7 @@ public class Library
     }
 
     // метод проверки строки на палиндромность
-    public int IfStringIsPalidrome(string input)
+    public static int IfStringIsPalidrome(string input)
     {
         int count = 0;
         for (int i = 0; i < input.Length / 2; i++)
@@ -62,7 +63,7 @@ public class Library
     }
 
     // метод проверки числа на палиндромность
-    public int IfIntIsPalidrome(int input)
+    public static int IfIntIsPalidrome(int input)
     {
         int numbertemp = input;
         int element = 0;
@@ -86,7 +87,7 @@ public class Library
 
 
     // метод нахождения расстояние между 2-умя точками в 3D пространстве
-    public float Find3DDistance(int[] yoursarray1, int[] yoursarray2)
+    public static float Find3DDistance(int[] yoursarray1, int[] yoursarray2)
     {
         int x = 0;
         int y = 0;
@@ -104,7 +105,7 @@ public class Library
     }
 
     // метод, который возводит A в натуральную степень B
-    public int AInSqrB(int number1, int number2)
+    public static int AInSqrB(int number1, int number2)
     {
         int step = 1;
         for (int i = 0; i < number2; i++)
@@ -125,6 +126,17 @@ public class Library
         }
     }
 
+    // метод вывода одномерного массива
+    public static void OneDArrayPrint(int[] yorsarrayprint)
+    {
+         for (int i = 0; i < yorsarrayprint.Length; i++)
+         {
+            Console.Write($"[{yorsarrayprint[i]}]");
+         }
+    }
+
+
 
 
 }
+

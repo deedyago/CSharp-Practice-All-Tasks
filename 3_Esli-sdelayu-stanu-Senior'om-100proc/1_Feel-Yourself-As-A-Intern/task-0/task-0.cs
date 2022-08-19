@@ -1,9 +1,8 @@
 ﻿//  0. Вывести квадрат числа
+using _0_Library;
 
-using static Library;
-
-Console.Write("Input your number: " );
-int number = InputToInt(Console.ReadLine()!);
+Console.Write("Input your number: ");
+int number = Library.InputToInt(Console.ReadLine()!);
 
 int Square(int number)
 {
