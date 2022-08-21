@@ -8,7 +8,7 @@ Console.Write("Input N:" );
 int n = int.Parse(Console.ReadLine())!;
 
 Console.WriteLine();
-int[,] DoubleArrayOfPifagor(int m, int n)
+int[,] ArrayOfPifagorGrid(int m, int n)
 {
     int[,] resultarray = new int[m, n];
     for (int i = 0; i < m; i++)
@@ -23,7 +23,7 @@ int[,] DoubleArrayOfPifagor(int m, int n)
     return resultarray;
 }
 
-int[,] array = DoubleArrayOfPifagor(10,10);
+int[,] array = ArrayOfPifagorGrid(10,10);
 
 int[,] ArrayOfPifagor(int[,] array, int n)
 {

@@ -3,7 +3,7 @@ using System;
 
 public static class Library
 {
-    // Ввод и перевод массива пользователем в числовой массив с помощью разделителя
+    // Ввод и перевод массива пользователем с клавиатуры в числовой массив с помощью разделителя
     public static int[] InputToIntArray(char splitter)
     {
         string str = Console.ReadLine();
@@ -162,7 +162,17 @@ public static class Library
         }
     }
 
-    // метод вывода одномерного массива
+
+    // метод рандомайзера вещественных чисел
+    public static void FloatRandomizer(double[] array, int min, int max)
+    {
+        for (int i = 0; i < array.Length; i++)
+        {
+            array[i] = new Random().NextDouble()*max-min;
+        }
+    }
+
+    // метод вывода одномерного массива натуральных чисел
     public static void OneDArrayPrint(int[] yorsarrayprint)
     {
          for (int i = 0; i < yorsarrayprint.Length; i++)
@@ -172,7 +182,14 @@ public static class Library
     }
 
 
-
+     // метод вывода одномерного массива вещественных чисел
+    public static void OneDArrayFloatPrint(double[] yorsarrayprint)
+    {
+         for (int i = 0; i < yorsarrayprint.Length; i++)
+         {
+            Console.Write($"[{yorsarrayprint[i]}]");
+         }
+    }
 
 }
 
