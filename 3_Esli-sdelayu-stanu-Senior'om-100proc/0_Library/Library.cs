@@ -3,11 +3,26 @@ using System;
 
 public static class Library
 {
-    // метод ввода:D
-    public static double InputToInt(string input)
+    // Ввод и перевод массива пользователем в числовой массив с помощью разделителя
+    public static int[] InputToIntArray(char splitter)
     {
-        double output = 0;
-        output = double.Parse(input);
+        string str = Console.ReadLine();
+        string[] strarray = str.Split(splitter);
+        int[] intarray = new int[strarray.Length];
+
+        for (int i = 0; i < intarray.Length; i++)
+        {
+            intarray[i] = int.Parse(strarray[i]);
+        }
+        return intarray;
+    }
+
+
+    // метод ввода:D
+    public static int InputToInt(string input)
+    {
+        int output = 0;
+        output = int.Parse(input);
         return output;
     }
     
@@ -86,23 +101,44 @@ public static class Library
     }
 
 
-    // метод нахождения расстояние между 2-умя точками в 3D пространстве
-    public static float Find3DDistance(int[] yoursarray1, int[] yoursarray2)
+    // метод нахождения расстояния между 2-умя точками в 2D/3D пространствах
+    public static float FindDistanceBtwCoords(float[] coord1, float[] coord2)
     {
-        int x = 0;
-        int y = 0;
-        int z = 0;
+        float x = 0;
+        float y = 0;
+        float z = 0;
         float distance = 0;
+        switch ((coord1.Length + coord2.Length) / 2)
+        {
+            case 3:
+                {
+                    x = (coord2[0] - coord1[0]) * (coord2[0] - coord1[0]);
+                    y = (coord2[1] - coord1[1]) * (coord2[1] - coord1[1]);
+                    z = (coord2[2] - coord1[2]) * (coord2[2] - coord1[2]);
+                    distance = MathF.Sqrt(x + y + z);
+                    Console.WriteLine($"  Distance between yours coordinates == {distance}");
+                    break;
+                }
+            case 2:
+                {
+                    x = (coord2[0] - coord1[0]) * (coord2[0] - coord1[0]);
+                    y = (coord2[1] - coord1[1]) * (coord2[1] - coord1[1]);
+                    distance = MathF.Sqrt(x + y + z);
+                    Console.WriteLine($"  Distance between yours coordinates == {distance}");
+                    break;
+                }
+            default:
+                {
 
-        x = (yoursarray2[0] - yoursarray1[0]) * (yoursarray2[0] - yoursarray1[0]);
-        y = (yoursarray2[1] - yoursarray1[1]) * (yoursarray2[1] - yoursarray1[1]);
-        z = (yoursarray2[2] - yoursarray1[2]) * (yoursarray2[2] - yoursarray1[2]);
-
-
-        distance = MathF.Sqrt(x + y + z);
+                    Console.WriteLine("  ERROR! SUCH COORDINATES CANNOT EXIST");
+                
+                    break;
+                }
+        }
         return distance;
 
     }
+
 
     // метод, который возводит A в натуральную степень B
     public static int AInSqrB(int number1, int number2)
