@@ -6,13 +6,33 @@ public static class Library
     // Ввод и перевод массива пользователем с клавиатуры в числовой массив с помощью разделителя
     public static int[] InputToIntArray(char splitter)
     {
-        string str = Console.ReadLine();
+        string str = Console.ReadLine()!;
+        str = str.Replace(',',' ');
+        str = str.Replace('(',' ');
+        str = str.Replace(')',' ');
         string[] strarray = str.Split(splitter);
         int[] intarray = new int[strarray.Length];
 
         for (int i = 0; i < intarray.Length; i++)
         {
             intarray[i] = int.Parse(strarray[i]);
+        }
+        return intarray;
+    }
+
+    // Ввод и перевод массива пользователем с клавиатуры в вещественный массив с помощью разделителя
+     public static double[] InputToFloatArray(char splitter)
+    {
+        string str = Console.ReadLine()!;
+        str = str.Replace(',',' ');
+        str = str.Replace('(',' ');
+        str = str.Replace(')',' ');
+        string[] strarray = str.Split(splitter);
+        double[] intarray = new double[strarray.Length];
+
+        for (int i = 0; i < intarray.Length; i++)
+        {
+            intarray[i] = double.Parse(strarray[i]);
         }
         return intarray;
     }
@@ -189,6 +209,21 @@ public static class Library
          {
             Console.Write($"[{yorsarrayprint[i]}]");
          }
+    }
+
+
+     // метод, принимающий десятичное представление и основание СС в которую нужно это число перевести
+    public static string TenDimensionalTo(int number, int osnovanie)
+    {
+        string str = "";
+        while(number > 0)
+        {
+            int sum = 0;
+            sum = number % osnovanie;
+            number  = number/osnovanie;
+            str = sum + str;
+        }
+        return str;
     }
 
 }
