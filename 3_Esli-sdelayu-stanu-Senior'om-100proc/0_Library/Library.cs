@@ -197,8 +197,9 @@ public static class Library
     {
          for (int i = 0; i < yorsarrayprint.Length; i++)
          {
-            Console.Write($"[{yorsarrayprint[i]}]");
+            Console.Write($" [{yorsarrayprint[i]}]");
          }
+         Console.WriteLine("\n");
     }
 
 
@@ -209,6 +210,7 @@ public static class Library
          {
             Console.Write($"[{yorsarrayprint[i]}]");
          }
+         Console.WriteLine("\n");
     }
 
 

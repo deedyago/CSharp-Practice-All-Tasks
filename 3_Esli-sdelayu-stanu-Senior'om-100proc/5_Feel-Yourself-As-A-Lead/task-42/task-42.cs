@@ -3,7 +3,7 @@ using _0_Library;
 
 Console.WriteLine();
 Console.Write("Input numbers separated by space (ex. 3 1 2): " );
-int[] array = Library.InputToIntArray(' ');
+int[] array = Library.InputToIntArray(' '); //  ../../../3_Esli-sdelayu-stanu-Senior'om-100proc/0_Library/Library.cs
 
 Console.WriteLine();
 
@@ -19,4 +19,4 @@ int Positives(int[] array)
     }
     return count;
 }
-Console.WriteLine($" There {Positives(array)} numbers > 0");
+Console.WriteLine($" There -{Positives(array)}- numbers > 0");
