@@ -173,13 +173,40 @@ public static class Library
     }
 
 
-    // метод рандомайзера натуральных чисел
+    // метод рандомайзера натуральных чисел одномерного массива
     public static void NaturalRamdomizer(int[] array, int min, int max)
     {
         for (int i = 0; i < array.Length; i++)
         {
             array[i] = new Random().Next(min, max);
         }
+    }
+
+
+    // метод рандомайзера натуральных чисел двумерного массива
+    public static void TwoDNaturalRamdomizer(int[,] array, int min, int max)
+    {
+        for (int i = 0; i < array.GetLength(0); i++)
+        {
+            for (int j = 0; j < array.GetLength(1); j++)
+
+            array[i,j] = new Random().Next(min, max);
+        }
+    }
+
+
+    // метод рандомного двумерного массива натуральных чисел
+    public static int[,] TwoDArray(int m, int n, int min, int max)
+    {
+        int[,] output = new int[m, n];
+        for(int i = 0; i < m; i++)
+        {
+            for(int j = 0; j < n; j++)
+            {
+               Library.TwoDNaturalRamdomizer(output,min,max);
+            }
+        }
+        return output;
     }
 
 
@@ -192,12 +219,72 @@ public static class Library
         }
     }
 
+
+    // // метод рандомайзера вещественных чисел двумерного массива
+    public static void TwoDFloatRandomizer(double[,] array, double min, double max)
+    {
+        for (int i = 0; i < array.GetLength(0); i++)
+        {
+            for (int j = 0; j < array.GetLength(1); j++)
+
+            array[i,j] = new Random().NextDouble()*(max-min);
+        }
+    }
+
+     // метод рандомного двумерного массива вещественных чисел
+    public static double[,] TwoDFloatArray(int m, int n, double min, double max)
+    {
+        double[,] output = new double[m, n];
+        for(int i = 0; i < m; i++)
+        {
+            for(int j = 0; j < n; j++)
+            {
+               Library.TwoDFloatRandomizer(output,min,max);
+            }
+        }
+        return output;
+    }
+
+
+
     // метод вывода одномерного массива натуральных чисел
     public static void OneDArrayPrint(int[] yorsarrayprint)
     {
          for (int i = 0; i < yorsarrayprint.Length; i++)
          {
             Console.Write($" [{yorsarrayprint[i]}]");
+         }
+         Console.WriteLine("\n");
+    }
+
+
+      // метод вывода двумерного массива натуральных чисел
+    public static void TwoDArrayPrint(int[,] yorsarrayprint)
+    {
+         for (int i = 0; i < yorsarrayprint.GetLength(0); i++)
+         {
+            for(int j = 0; j < yorsarrayprint.GetLength(1); j++)
+            {
+                Console.Write($" [{yorsarrayprint[i,j]}]");
+            }
+            Console.WriteLine();
+            
+         }
+         Console.WriteLine("\n");
+    }
+
+
+     // метод вывода двумерного массива вещественных чисел
+    public static void TwoDFloatArrayPrint(double[,] yorsarrayprint)
+    {
+         for (int i = 0; i < yorsarrayprint.GetLength(0); i++)
+         {
+            for(int j = 0; j < yorsarrayprint.GetLength(1); j++)
+            {
+                Console.Write($" [{yorsarrayprint[i,j]}]");
+            }
+            Console.WriteLine();
+            
          }
          Console.WriteLine("\n");
     }
