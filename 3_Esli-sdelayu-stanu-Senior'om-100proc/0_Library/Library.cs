@@ -7,9 +7,9 @@ public static class Library
     public static int[] InputToIntArray(char splitter)
     {
         string str = Console.ReadLine()!;
-        str = str.Replace(',',' ');
-        str = str.Replace('(',' ');
-        str = str.Replace(')',' ');
+        str = str.Replace(',', ' ');
+        str = str.Replace('(', ' ');
+        str = str.Replace(')', ' ');
         string[] strarray = str.Split(splitter);
         int[] intarray = new int[strarray.Length];
 
@@ -21,12 +21,12 @@ public static class Library
     }
 
     // Ввод и перевод массива пользователем с клавиатуры в вещественный массив с помощью разделителя
-     public static double[] InputToFloatArray(char splitter)
+    public static double[] InputToFloatArray(char splitter)
     {
         string str = Console.ReadLine()!;
-        str = str.Replace(',',' ');
-        str = str.Replace('(',' ');
-        str = str.Replace(')',' ');
+        str = str.Replace(',', ' ');
+        str = str.Replace('(', ' ');
+        str = str.Replace(')', ' ');
         string[] strarray = str.Split(splitter);
         double[] intarray = new double[strarray.Length];
 
@@ -45,10 +45,10 @@ public static class Library
         output = int.Parse(input);
         return output;
     }
-    
+
     // метод проверки на четность
     public static bool IfEven(int input)
-	{
+    {
         if (input % 2 == 0)
         {
             return true;
@@ -61,8 +61,8 @@ public static class Library
 
     // метод сравнения чисел
     public static (int i1, int i2) MaxAndMin(int input1, int input2)
-	{
-        if (input1 > input2 )
+    {
+        if (input1 > input2)
         {
             return (i1: input1, i2: input2);
         }
@@ -151,7 +151,7 @@ public static class Library
                 {
 
                     Console.WriteLine("  ERROR! SUCH COORDINATES CANNOT EXIST");
-                
+
                     break;
                 }
         }
@@ -190,7 +190,7 @@ public static class Library
         {
             for (int j = 0; j < array.GetLength(1); j++)
 
-            array[i,j] = new Random().Next(min, max);
+                array[i, j] = new Random().Next(min, max);
         }
     }
 
@@ -199,11 +199,11 @@ public static class Library
     public static int[,] TwoDArray(int m, int n, int min, int max)
     {
         int[,] output = new int[m, n];
-        for(int i = 0; i < m; i++)
+        for (int i = 0; i < m; i++)
         {
-            for(int j = 0; j < n; j++)
+            for (int j = 0; j < n; j++)
             {
-               Library.TwoDNaturalRamdomizer(output,min,max);
+                Library.TwoDNaturalRamdomizer(output, min, max);
             }
         }
         return output;
@@ -215,7 +215,7 @@ public static class Library
     {
         for (int i = 0; i < array.Length; i++)
         {
-            array[i] = new Random().NextDouble()*max-min;
+            array[i] = new Random().NextDouble() * max - min;
         }
     }
 
@@ -227,19 +227,19 @@ public static class Library
         {
             for (int j = 0; j < array.GetLength(1); j++)
 
-            array[i,j] = new Random().NextDouble()*(max-min);
+                array[i, j] = new Random().NextDouble() * (max - min);
         }
     }
 
-     // метод рандомного двумерного массива вещественных чисел
+    // метод рандомного двумерного массива вещественных чисел
     public static double[,] TwoDFloatArray(int m, int n, double min, double max)
     {
         double[,] output = new double[m, n];
-        for(int i = 0; i < m; i++)
+        for (int i = 0; i < m; i++)
         {
-            for(int j = 0; j < n; j++)
+            for (int j = 0; j < n; j++)
             {
-               Library.TwoDFloatRandomizer(output,min,max);
+                Library.TwoDFloatRandomizer(output, min, max);
             }
         }
         return output;
@@ -250,70 +250,69 @@ public static class Library
     // метод вывода одномерного массива натуральных чисел
     public static void OneDArrayPrint(int[] yorsarrayprint)
     {
-         for (int i = 0; i < yorsarrayprint.Length; i++)
-         {
+        for (int i = 0; i < yorsarrayprint.Length; i++)
+        {
             Console.Write($" [{yorsarrayprint[i]}]");
-         }
-         Console.WriteLine("\n");
+        }
+        Console.WriteLine("\n");
     }
 
 
-      // метод вывода двумерного массива натуральных чисел
+    // метод вывода двумерного массива натуральных чисел
     public static void TwoDArrayPrint(int[,] yorsarrayprint)
     {
-         for (int i = 0; i < yorsarrayprint.GetLength(0); i++)
-         {
-            for(int j = 0; j < yorsarrayprint.GetLength(1); j++)
+        for (int i = 0; i < yorsarrayprint.GetLength(0); i++)
+        {
+            for (int j = 0; j < yorsarrayprint.GetLength(1); j++)
             {
-                Console.Write($" [{yorsarrayprint[i,j]}]");
+                Console.Write($" [{yorsarrayprint[i, j]}]");
             }
             Console.WriteLine();
-            
-         }
-         Console.WriteLine("\n");
+
+        }
+        Console.WriteLine("\n");
     }
 
 
-     // метод вывода двумерного массива вещественных чисел
+    // метод вывода двумерного массива вещественных чисел
     public static void TwoDFloatArrayPrint(double[,] yorsarrayprint)
     {
-         for (int i = 0; i < yorsarrayprint.GetLength(0); i++)
-         {
-            for(int j = 0; j < yorsarrayprint.GetLength(1); j++)
+        for (int i = 0; i < yorsarrayprint.GetLength(0); i++)
+        {
+            for (int j = 0; j < yorsarrayprint.GetLength(1); j++)
             {
-                Console.Write($" [{yorsarrayprint[i,j]}]");
+                Console.Write($" [{yorsarrayprint[i, j]}]");
             }
             Console.WriteLine();
-            
-         }
-         Console.WriteLine("\n");
+
+        }
+        Console.WriteLine("\n");
     }
 
 
-     // метод вывода одномерного массива вещественных чисел
+    // метод вывода одномерного массива вещественных чисел
     public static void OneDArrayFloatPrint(double[] yorsarrayprint)
     {
-         for (int i = 0; i < yorsarrayprint.Length; i++)
-         {
+        for (int i = 0; i < yorsarrayprint.Length; i++)
+        {
             Console.Write($"[{yorsarrayprint[i]}]");
-         }
-         Console.WriteLine("\n");
+        }
+        Console.WriteLine("\n");
     }
 
 
-     // метод, принимающий десятичное представление и основание СС в которую нужно это число перевести
+    // метод, принимающий десятичное представление и основание СС в которую нужно это число перевести
     public static string TenDimensionalTo(int number, int osnovanie)
     {
         string str = "";
-        while(number > 0)
+        while (number > 0)
         {
             int sum = 0;
             sum = number % osnovanie;
-            number  = number/osnovanie;
+            number = number / osnovanie;
             str = sum + str;
         }
         return str;
     }
 
 }
-
