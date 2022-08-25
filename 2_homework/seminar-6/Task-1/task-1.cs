@@ -7,7 +7,7 @@ int[] array = Library.InputToIntArray(' ');   // ..\3_Esli-sdelayu-stanu-Senior'
 
 Console.WriteLine();
 
-(int count, int[] arrayp) Positives(int[] array)
+int[] Positives(int[] array)
 {
     int count = 0;
     int counti = 0;
@@ -27,9 +27,8 @@ Console.WriteLine();
             counti++;
         } 
     }
-    
-    return (count, arrayp);
+    return arrayp;
 }
-int[] arrayp = Positives(array).arrayp;
-Console.WriteLine($" There are -{Positives(array).count}- numbers > 0 \n and numbers are: ");
+int[] arrayp = Positives(array);
+Console.WriteLine($" There are -{arrayp.Length}- numbers > 0 \n and numbers are: ");
 Library.OneDArrayPrint(arrayp);
