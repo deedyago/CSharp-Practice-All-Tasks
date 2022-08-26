@@ -281,7 +281,7 @@ public static class Library
         {
             for (int j = 0; j < yorsarrayprint.GetLength(1); j++)
             {
-                Console.Write($" [{yorsarrayprint[i, j]}]");
+                Console.Write($" [{yorsarrayprint[i, j]:F3}]");
             }
             Console.WriteLine();
 
