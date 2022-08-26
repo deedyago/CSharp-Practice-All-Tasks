@@ -265,7 +265,7 @@ public static class Library
         {
             for (int j = 0; j < yorsarrayprint.GetLength(1); j++)
             {
-                Console.Write($" [{yorsarrayprint[i, j]}]");
+                Console.Write($" [{yorsarrayprint[i, j]:D2}]");
             }
             Console.WriteLine();
 
@@ -313,6 +313,39 @@ public static class Library
             str = sum + str;
         }
         return str;
+    }
+
+
+    public static int[] DarrayFindElementI(int[,] array, int input)
+    {
+        int sizecount = 0;                                                 // 42 - 54 строки делаю это для "красивого" вывода
+        int count = 0;
+        for (int i = 0; i < array.GetLength(0); i++)
+        {
+            for (int j = 0; j < array.GetLength(1); j++)
+            {
+                if (array[i, j] == input)
+                {
+                    sizecount += 2;
+                    count++;
+                }
+            }
+        }
+        int k = 0;                       // новая переменная что бы новый массив заполнялся с начала, а не с i или j индекса, когда элемент который мы ищем найдется
+        int[] foundindexes = new int[sizecount];
+        for (int i = 0; i < array.GetLength(0); i++)
+        {
+            for (int j = 0; j < array.GetLength(1); j++)
+            {
+                if (array[i, j] == input)
+                {
+                    foundindexes[k] = i;
+                    foundindexes[k + 1] = j;
+                    k += 2;
+                }
+            }
+        }
+        return foundindexes;
     }
 
 }
