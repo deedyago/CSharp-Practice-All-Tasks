@@ -15,13 +15,14 @@ double[] PowerOfString (char[] array, string ascii)
 
     for (int i = 0; i < ascii.Length; i++)
     {
-        for (int j = 0; j < array.Length; j++)
+        for (int j = 0; j < array.Length; j++) //Char.GetNumericValue
         {
             if (array[j] == ascii[i])
             {
                         tempCount++;
+                        //trueOrFalse = char.GetNumericValue(array[j]);
                         trueOrFalse = Convert.ToInt32(array[j]);
-                        if(trueOrFalse >= 48 && trueOrFalse <= 57)
+                        if (char.IsDigit(array[j]))
                         {
                                 temparray[i] = temparray[i] + 1.0;
                                 CountNumbers++;

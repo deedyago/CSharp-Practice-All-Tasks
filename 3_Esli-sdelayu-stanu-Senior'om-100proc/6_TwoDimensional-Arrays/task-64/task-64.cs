@@ -1,7 +1,4 @@
 ﻿// 64. Показать треугольник Паскаля
-
-
-
 using _0_Library;
 
 //Console.WriteLine("Input depth of yr random array: ");
@@ -12,11 +9,6 @@ int m = int.Parse(Console.ReadLine()!);
 
 Console.WriteLine("Input columns of yr random array: ");
 int n = int.Parse(Console.ReadLine()!);
-
-
-
-
-
 
 int[,] RandomArray(int[,] array)
 {
