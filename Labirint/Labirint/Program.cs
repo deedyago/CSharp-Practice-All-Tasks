@@ -57,7 +57,7 @@ for (int i = 0; i < labirint.GetLength(0); i++)
     int yPosBuf = yPos;
 
     //Движение вверх i - 1 вниз i + 1 влево y - 1 вправо y + 1
-    if (matrix[xPosBuf, yPosBuf] != 2 && (xPosBuf != matrix.GetLength(0) && xPosBuf != 0) && (yPosBuf != matrix.GetLength(1) && yPosBuf != 0))
+    if (matrix[xPosBuf, yPosBuf] != 2)
     {
         if ((matrix[xPosBuf - 1, yPosBuf] != 1 && matrix[xPosBuf - 1, yPosBuf] != 4) && (xPosBuf < matrix.GetLength(0) && xPosBuf > 0))
         {
@@ -91,6 +91,7 @@ for (int i = 0; i < labirint.GetLength(0); i++)
             //PrintMatrix2DBeautifully(bufferLabirint);
             Movment(bufferLabirint, xPosBuf, yPosBuf);
         }
+        else if
     }
     else
     {
