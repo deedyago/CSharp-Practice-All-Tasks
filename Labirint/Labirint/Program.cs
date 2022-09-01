@@ -8,7 +8,7 @@ int[,] labirint = new int[10, 10]
     {1, 1, 1, 0, 1, 0, 1, 0, 1, 1},
     {1, 0, 0, 0, 0, 0, 1, 0, 0, 1},
     {1, 0, 1, 0, 1, 1, 1, 1, 0, 1},
-    {1, 0, 1, 0, 0, 0, 0, 0, 0, 1},
+    {1, 0, 1, 0, 0, 0, 0, 0, 1, 1},
     {1, 1, 1, 1, 1, 1, 1, 0, 1, 1},
     {1, 0, 0, 0, 1, 0, 0, 0, 0, 1},
     {1, 0, 1, 0, 0, 0, 1, 0, 0, 1},
@@ -37,59 +37,64 @@ static void PrintMatrix2DBeautifully(int[,] matrix) //Вывод двумерн�
         }
         Console.WriteLine();
     }
+    Console.WriteLine();
 }
 PrintMatrix2DBeautifully(labirint);
-
-
+int[,] bufferLabirint = new int[labirint.GetLength(0), labirint.GetLength(1)];
+for (int i = 0; i < labirint.GetLength(0); i++)
+{
+    for (int j = 0; j < labirint.GetLength(1); j++)
+    {
+        bufferLabirint[i, j] = labirint[i, j];
+    }
+}
 
 
 (int[,], int, int) Movment(int[,] matrix, int xPos, int yPos)
 {
-    int[,] bufferLabirint = new int[matrix.GetLength(0), matrix.GetLength(1)];
+    
     int xPosBuf = xPos;
     int yPosBuf = yPos;
-    for (int i = 0; i < matrix.GetLength(0); i++)
-    {
-        for (int j = 0; j < matrix.GetLength(1); j++)
-        {
-            bufferLabirint[i, j] = matrix[i, j];
-        }
-    }
+
     //Движение вверх i - 1 вниз i + 1 влево y - 1 вправо y + 1
-    if (matrix[xPosBuf, yPosBuf] != 2)
+    if (matrix[xPosBuf, yPosBuf] != 2 && (xPosBuf != matrix.GetLength(0) && xPosBuf != 0) && (yPosBuf != matrix.GetLength(1) && yPosBuf != 0))
     {
-        if (matrix[xPosBuf - 1, yPosBuf] != 1  && (xPosBuf < matrix.GetLength(0) && xPosBuf > 0))
+        if ((matrix[xPosBuf - 1, yPosBuf] != 1 && matrix[xPosBuf - 1, yPosBuf] != 4) && (xPosBuf < matrix.GetLength(0) && xPosBuf > 0))
         {
             bufferLabirint[xPosBuf - 1, yPosBuf] = 3;
             bufferLabirint[xPosBuf, yPosBuf] = 4;
             xPosBuf--;
+            //PrintMatrix2DBeautifully(bufferLabirint);
             Movment(bufferLabirint, xPosBuf, yPosBuf);
         }
-        else if (matrix[xPosBuf, yPosBuf + 1] != 1 && (yPosBuf < matrix.GetLength(1) && yPosBuf > 0))
+        else if ((matrix[xPosBuf, yPosBuf + 1] != 1  && matrix[xPosBuf, yPosBuf + 1] != 4) && (yPosBuf < matrix.GetLength(1) && yPosBuf > 0))
         {
             bufferLabirint[xPosBuf, yPosBuf + 1] = 3;
             bufferLabirint[xPosBuf, yPosBuf] = 4;
             yPosBuf++;
+            //PrintMatrix2DBeautifully(bufferLabirint);
             Movment(bufferLabirint, xPosBuf, yPosBuf);
         }
-        else if (matrix[xPosBuf + 1, yPosBuf] != 1 && (xPosBuf < matrix.GetLength(0) && xPosBuf > 0))
+        else if ((matrix[xPosBuf + 1, yPosBuf] != 1 && matrix[xPosBuf + 1, yPosBuf] != 4) && (xPosBuf < matrix.GetLength(0) && xPosBuf > 0))
         {
             bufferLabirint[xPosBuf + 1, yPosBuf] = 3;
             bufferLabirint[xPosBuf, yPosBuf] = 4;
             xPosBuf++;
+            //PrintMatrix2DBeautifully(bufferLabirint);
             Movment(bufferLabirint, xPosBuf, yPosBuf);
         }
-        else if (matrix[xPosBuf, yPosBuf - 1] != 1 && (yPosBuf < matrix.GetLength(1) && yPosBuf > 0))
+        else if ((matrix[xPosBuf, yPosBuf - 1] != 1 && matrix[xPosBuf, yPosBuf - 1] != 4) && (yPosBuf < matrix.GetLength(1) && yPosBuf > 0))
         {
             bufferLabirint[xPosBuf, yPosBuf - 1] = 3;
             bufferLabirint[xPosBuf, yPosBuf] = 4;
             yPosBuf--;
+            //PrintMatrix2DBeautifully(bufferLabirint);
             Movment(bufferLabirint, xPosBuf, yPosBuf);
         }
     }
     else
     {
-        Console.WriteLine("Kek");
+        Console.WriteLine("ПОБЕДА!\n");
     }
     return (bufferLabirint, xPosBuf, yPosBuf);
 }
