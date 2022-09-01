@@ -58,28 +58,28 @@ PrintMatrix2DBeautifully(labirint);
     //Движение вверх i - 1 вниз i + 1 влево y - 1 вправо y + 1
     if (matrix[xPosBuf, yPosBuf] != 2)
     {
-        if (matrix[xPosBuf - 1, yPosBuf] != 1  && xPosBuf < matrix.GetLength(0) && xPosBuf > 0)
+        if (matrix[xPosBuf - 1, yPosBuf] != 1  && xPosBuf < matrix.GetLength(0) || xPosBuf > 0)
         {
             bufferLabirint[xPosBuf - 1, yPosBuf] = 3;
             bufferLabirint[xPosBuf, yPosBuf] = 4;
             xPosBuf--;
             Movment(bufferLabirint, xPosBuf, yPosBuf);
         }
-        else if (matrix[xPosBuf, yPosBuf + 1] != 1 && yPosBuf < matrix.GetLength(1) && yPosBuf > 0)
+        else if (matrix[xPosBuf, yPosBuf + 1] != 1 && yPosBuf < matrix.GetLength(1) || yPosBuf > 0)
         {
             bufferLabirint[xPosBuf, yPosBuf + 1] = 3;
             bufferLabirint[xPosBuf, yPosBuf] = 4;
             yPosBuf++;
             Movment(bufferLabirint, xPosBuf, yPosBuf);
         }
-        else if (matrix[xPosBuf + 1, yPosBuf] != 1 && xPosBuf < matrix.GetLength(0) && xPosBuf > 0)
+        else if (matrix[xPosBuf + 1, yPosBuf] != 1 && xPosBuf < matrix.GetLength(0) || xPosBuf > 0)
         {
             bufferLabirint[xPosBuf + 1, yPosBuf] = 3;
             bufferLabirint[xPosBuf, yPosBuf] = 4;
             xPosBuf++;
             Movment(bufferLabirint, xPosBuf, yPosBuf);
         }
-        else if (matrix[xPosBuf, yPosBuf - 1] != 1 && yPosBuf < matrix.GetLength(1) && yPosBuf > 0)
+        else if (matrix[xPosBuf, yPosBuf - 1] != 1 && yPosBuf < matrix.GetLength(1) || yPosBuf > 0)
         {
             bufferLabirint[xPosBuf, yPosBuf - 1] = 3;
             bufferLabirint[xPosBuf, yPosBuf] = 4;
