@@ -5,10 +5,16 @@ using _0_Library;
 
 string input = "asiv";
 
-
+int[] buffer = new int[input.Length-1];
+int sum = -1;
 for(int i = 0; i < 4; i++)
 {
-    for(int j = 0; i <4; )
-    Console.WriteLine(input[i]);
-
+    if(sum == 3) sum = 0;
+    buffer[i] = sum + 1;
 }
+sum = 0;
+for(int i = 0; i < 4; i++)
+{
+    Console.Write(input[i]);
+}
+Console.WriteLine();
