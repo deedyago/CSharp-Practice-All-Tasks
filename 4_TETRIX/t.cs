@@ -1,6 +1,28 @@
 ﻿int x = 10;
 int y = 1;
 
+
+int[,] field = new int[20,16];
+int coordX = field.GetLength(1)/2;
+int coordY = 0;
+
+List<char[,]> figures = new List<char>()
+{
+    char[,] field      =new char[16,16];
+char[,] fill_field =new char[16,16];
+char[,] figure;
+char[,] line       =new char[1,4] {{_1,_1,_1,_1}};
+char[,] square     =new char[2,2] {{_1,_1},{_1,_1}};
+char[,] angle_left =new char[3,2] {{_0,_1},{_0,_1},{_1,_1}};
+char[,] angle_right=new char[3,2] {{_1,_0},{_1,_0},{_1,_1}};
+char[,] sig_left   =new char[3,2] {{_1,_0},{_1,_1},{_0,_1}};
+char[,] sig_right  =new char[3,2] {{_0,_1},{_1,_1},{_1,_0}};
+char[,] triangle   =new char[2,3] {{_0,_1,_0},{_1,_1,_1}};
+char[,] star       =new char[3,3] {{_0,_1,_0},{_1,_1,_1},{_0,_1,_0}};
+char[,] snake_left =new char[3,3] {{_1,_0,_0},{_1,_1,_1},{_0,_0,_1}};
+char[,] snake_right=new char[3,3] {{_0,_0,_1},{_1,_1,_1},{_1,_0,_0}};
+};
+
 int Randomizer()
 {
     int random = new Random().Next(1,4);
